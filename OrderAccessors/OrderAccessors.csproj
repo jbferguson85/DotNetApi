@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Contexts\" />
+    <Folder Include="Accessors\" />
+    <Folder Include="Accessors\Implementations\" />
+    <Folder Include="Accessors\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrderCore\OrderCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MappingProfiles\CustomerEntityProfile.cs" />
+    <Compile Remove="Entities\**" />
+    <Compile Remove="MappingProfiles\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Entities\**" />
+    <EmbeddedResource Remove="MappingProfiles\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Entities\**" />
+    <None Remove="MappingProfiles\**" />
+  </ItemGroup>
+</Project>
